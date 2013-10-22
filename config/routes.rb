@@ -8,8 +8,8 @@ DuckJeenyusApp::Application.routes.draw do
   get '/admins/login' => 'admins#login'
   post '/admins/login' => 'sessions#admin_create'
   get '/admins/logout' => 'admins#logout'
-  get '/bumbleklaart' => 'admins#new'
-  get '/admins/new' => '/'
+  # get '/bumbleklaart' => 'admins#new'
+  # get '/admins/new' => '/'
   resources :admins
 
 
