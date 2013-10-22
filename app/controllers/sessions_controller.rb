@@ -3,12 +3,7 @@ class SessionsController < ApplicationController
     access_token = request.env['omniauth.auth'][:extra][:access_token].token
     access_token = access_token.to_s
 
-    if
-      access_token = "28347469-o89qjfw76icB88J9LRNCgNmboqSZAJ4lcB92NqqI0"
-      user = User.where(access_token: access_token).first
-      session[:current_user_id] = user.id
-      redirect_to admin_url, notice: "Logged in!"
-    elsif User.exists?(:access_token => access_token)
+    if User.exists?(:access_token => access_token)
       user = User.where(access_token: access_token).first
       session[:current_user_id] = user.id
       redirect_to('/')
