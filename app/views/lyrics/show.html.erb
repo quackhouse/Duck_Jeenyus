@@ -12,7 +12,7 @@ Interpretations:
     <% lyric_array = @lyric.text.split(' ') %>
     <% tweet = lyric_array.join('%20') %>
     <% tweet = tweet + "...%40QUACKHOUSE" %>
-       <br><a href="http://twitter.com/share?text=<%= tweet %>" target="_blank">
+       <br><a href="http://twitter.com/share?text=<%= tweet %>&url=http://thawing-brushlands-8570.herokuapp.com/" target="_blank">
 Tweet This!</a>
 <br>
 <a href="/songs/<%= @lyric.song.id %>">Back to Song</a>
