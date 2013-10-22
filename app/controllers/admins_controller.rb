@@ -12,12 +12,24 @@ class AdminsController < ApplicationController
       redirect_to('/admins')
     else
       flash[:notice] = 'this shit does not work'
-      render :new
+      render :login
     end
   end
   def logout
     session[:admin] = false
     redirect_to('/')
+  end
+  def admin_create
+    email = params[:email]
+    password = params[:password]
+    @admin = Admin.where(email: email).first
+    if @admin && @admin.authenticate(password)
+      session[:admin] = true
+      redirect_to('/admins')
+    else
+      flash[:notice] = "Incorrect password"
+      render :login
+    end
   end
   def songs
     @songs = Song.all
@@ -53,7 +65,8 @@ class AdminsController < ApplicationController
         :downvotes => downvotes,
         :score => score,
         :lyric_id => lyric_id,
-        :song => lyric.song
+        :song => lyric.song,
+        :lyric => lyric.text
       }
     end
     @comments.sort_by! { |k| k[:score]}
@@ -84,7 +97,8 @@ class AdminsController < ApplicationController
         :downvotes => downvotes,
         :score => score,
         :lyric_id => lyric_id,
-        :song => lyric.song
+        :song => lyric.song,
+        :lyric => lyric.text
       }
     end
     @comments.sort_by! { |k| k[:score]}

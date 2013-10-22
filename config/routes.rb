@@ -6,7 +6,7 @@ DuckJeenyusApp::Application.routes.draw do
   get '/admins/songs' => 'admins#songs'
   get '/admins/comments' => 'admins#comments'
   get '/admins/login' => 'admins#login'
-  post '/admins/login' => 'sessions#admin_create'
+  post '/admins/login' => 'admins#admin_create'
   get '/admins/logout' => 'admins#logout'
   # get '/bumbleklaart' => 'admins#new'
   # get '/admins/new' => '/'

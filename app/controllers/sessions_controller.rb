@@ -22,16 +22,4 @@ class SessionsController < ApplicationController
     session[:current_user_id] = nil
     redirect_to('/')
   end
-  def admin_create
-    email = params[:email]
-    password = params[:password]
-    @admin = Admin.where(email: email).first
-    if @admin && @admin.authenticate(password)
-      session[:admin] = true
-      redirect_to('/admins')
-    else
-      flash[:notice] = "nope that didn't work"
-      render :new
-    end
-  end
 end
