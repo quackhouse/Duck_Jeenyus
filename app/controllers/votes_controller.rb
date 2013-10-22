@@ -30,7 +30,8 @@ class VotesController < ApplicationController
         :downvotes => downvotes,
         :score => score,
         :lyric_id => lyric_id,
-        :song => lyric.song
+        :song => lyric.song,
+        :lyric => lyric.text
       }
     end
     @comments = @comments.sort_by { |hsh| hsh[:score] }
