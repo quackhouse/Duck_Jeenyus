@@ -140,3 +140,8 @@ input[type=submit], button {
   height: 300px;
 
 }
+
+small {
+  font-size: .8em;
+  display: block;
+}

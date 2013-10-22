@@ -1,5 +1,8 @@
 DuckJeenyusApp::Application.routes.draw do
 
+  get '/admins/comments/date' => 'admins#comment_by_date'
+  get '/admins/comments/upvotes' => 'admins#comment_by_upvote'
+  get '/admins/comments/downvotes' => 'admins#comment_by_downvote'
   get '/admins/songs' => 'admins#songs'
   get '/admins/comments' => 'admins#comments'
   get '/admins/login' => 'admins#login'

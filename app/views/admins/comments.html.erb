@@ -1,0 +1,11 @@
+<div class="padded">
+  <% if session[:admin] %>
+  <h2>Moderate Comments</h2>
+  <%= link_to 'View Comments by Date', '/admins/comments/date' %>
+  <br><%= link_to 'View Comments by Rating (Low to High)', '/admins/comments/upvotes' %>
+  <br><%= link_to'View Comments by Rating (High to Low)', '/admins/comments/downvotes' %>
+  <% else %>
+  Hey, you shouldn't be here.
+  <%= link_to 'Go Home', '/' %>
+  <% end %>
+</div>

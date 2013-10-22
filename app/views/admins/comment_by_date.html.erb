@@ -1,0 +1,20 @@
+<div class="padded">
+  <% if session[:admin] %>
+  <% @comments.each do |comment| %>
+  <%= comment.text %>
+  <br><small>From Lyric: <%= comment.lyric.text %></small>
+  <small>Created on: <%= comment.date_created %></small>
+
+  <%= form_tag "/lyrics/#{comment.lyric_id}/comments/#{comment.id}/edit", method: :get do %>
+  <%= submit_tag 'Edit Comment' %>
+  <% end %>
+  <%= form_tag "/lyrics/#{comment.lyric_id}/comments/#{comment.id}", method: :delete do %>
+  <%= submit_tag 'Delete Comment' %>
+  <% end %>
+  <br>
+  <% end %>
+  <% else %>
+  Hey, you shouldn't be here.
+  <%= link_to 'Go Home', '/' %>
+  <% end %>
+</div>
