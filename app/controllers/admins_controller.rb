@@ -70,7 +70,6 @@ class AdminsController < ApplicationController
       }
     end
     @comments.sort_by! { |k| k[:score]}
-    @comments.reverse!
   end
   def comment_by_downvote
     @comments = []
@@ -102,5 +101,6 @@ class AdminsController < ApplicationController
       }
     end
     @comments.sort_by! { |k| k[:score]}
+    @comments.reverse!
   end
 end

@@ -1,5 +1,5 @@
 <div class="padded"> <%= flash[:notice] %>
-
+<% if session[:admin] %>
 <h2>Create new Admin</h2>
 <%= form_for(@admin) do |f| %>
   <%= f.label :email %>
@@ -9,5 +9,8 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %><br>
   <%= f.submit "Create" %>
+<% end %>
+<% else %>
+Hey, you're not supposed to be here!
 <% end %>
 </div>

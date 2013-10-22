@@ -7,8 +7,13 @@
 
   <h2>Hover to see different lyrical interpretations!</h2>
   <% @song.lyrics.each do |lyric| %>
+  <% if lyric.comments.size == 0 %>
+  <% @color = 'rgba(0, 0, 0, .8)' %>
+  <% else %>
+  <% @color = 'rgba(106, 139, 185, .7)'  %>
+  <% end %>
   <br><div class="song-wrapper">
-  <div class="lyric"><a href="/lyrics/<%= lyric.id %>"><%= lyric.text %></a></div>
+  <div class="lyric"><a href="/lyrics/<%= lyric.id %>" style="color:<%= @color %>"><%= lyric.text %></a></div>
   <div class="lyric-tool-tip" id="<%= lyric.id %>">
     <% comments = lyric.comments %>
     <% comment_array = [] %>

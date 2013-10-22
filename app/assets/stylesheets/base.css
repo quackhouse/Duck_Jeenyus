@@ -76,9 +76,9 @@ a {
   color: rgba(1, 1, 1, .8);
 }
 
-a:hover {
+/*a:hover {
   color: #1B1BB3;
-}
+}*/
 
 .left {
   text-alight: left;
