@@ -13,27 +13,39 @@
   <div class="container">
     <div id="wrapper">
       <div id="content">
-    <div class="user_nav">
-      <div class="left twelve columns">
-        <%= link_to "Home", "/" %> |
-        <%= link_to "Scoreboard", "/votes" %>
-        <% if !@current_user.nil? %>
-         | <%= link_to "My Meanings", "/users/#{@current_user.id}" %>
-        <% end %>
-      </div>
-      <div class="right four columns">
-        <% if @current_user.nil? %>
-        <%= link_to "Sign in with Twitter", "/auth/twitter"%>
-        <% else %>
-        <%= "Hi, #{@current_user.name}" %>  |
-        <%= link_to "Sign out", "/sessions/#{@current_user.id}", :method => :delete %>
-        <% end %>
-      </div>
-    </div>
-    <br><br>
-    <div class="main">
-      <%= yield %>
-    </div></div></div>
-  </div><!-- container -->
-</body>
-</html>
+        <div class="user_nav">
+          <div class="left twelve columns">
+            <% if session[:admin] != true %>
+            <%= link_to "Home", "/" %> |
+            <%= link_to "Scoreboard", "/votes" %>
+            <% if !@current_user.nil? %>
+            | <%= link_to "My Meanings", "/users/#{@current_user.id}" %>
+            <% end %>
+          </div>
+          <div class="right four columns">
+            <% if @current_user.nil? %>
+            <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+            <% else %>
+            <%= "Hi, #{@current_user.name}" %>  |
+            <%= link_to "Sign out", "/sessions/#{@current_user.id}", :method => :delete %>
+            <% end %>
+            <% else %>
+            <div class="left twelve columns">
+              <%= link_to 'Moderate Songs', '/admins/songs' %>
+              | <%= link_to 'Moderate Comments', '/admins/comments' %>
+               | <%= link_to 'Sign Out Admin', '/admins/logout' %>
+
+            </div>
+            <div class="right four columns">
+            </div>
+            <% end %>
+
+          </div>
+        </div>
+        <br><br>
+        <div class="main">
+          <%= yield %>
+        </div></div></div>
+      </div><!-- container -->
+    </body>
+    </html>

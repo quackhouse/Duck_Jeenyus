@@ -11,7 +11,7 @@
 # song.name = file.readline.chomp
 # song.release_date = file.readline.chomp
 # song.album = file.readline.chomp
-# song.streamlink = ''https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/96271961''
+# song.streamlink = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/96271961'
 # song.save
 
 # file.each_line do |line|
@@ -21,22 +21,22 @@
 #   song.lyrics << lyric
 # end
 
-# file = File.open('u_turn_me_up.txt', 'r')
-# song = Song.new
-# song.name = file.readline.chomp
-# song.release_date = file.readline.chomp
-# song.album = file.readline.chomp
-# song.streamlink = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/110791901'
-# song.save
+file = File.open('u_turn_me_up.txt', 'r')
+song = Song.new
+song.name = file.readline.chomp
+song.release_date = file.readline.chomp
+song.album = file.readline.chomp
+song.streamlink = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/110791901'
+song.save
 
-# file.each_line do |line|
-#   lyric = Lyric.new
-#   lyric.text = line.chomp
-#   lyric.save
-#   song.lyrics << lyric
-# end
+file.each_line do |line|
+  lyric = Lyric.new
+  lyric.text = line.chomp
+  lyric.save
+  song.lyrics << lyric
+end
 
-# # User.create(access_token: 'anonymous ')
+# User.create(access_token: 'anonymous ')
 
 # # song = Song.find(1)
 # # song.streamlink = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/96271961'

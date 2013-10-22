@@ -1,0 +1,18 @@
+<% if session[:admin] %>
+<div class="padded">
+  <%= link_to 'New Song', '/songs/new' %>
+
+  <br>
+  <span class="bigger">Songs:</span>
+  <% if @songs != nil %>
+  <% @songs.each do |song| %>
+  <br><a href="/songs/<%= song.id %>"><%= song.name %></a>
+  <%= form_tag "/songs/#{song.id}", method: :delete do %>
+    <%= submit_tag 'Delete Song' %>
+    <% end %>
+  <% end %>
+  <% end %>
+  <% else %>
+  Whoops, you're not supposed to be here. <%= link_to 'Go Home', '/' %>
+  <% end %>
+</div>

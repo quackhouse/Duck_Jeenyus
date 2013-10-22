@@ -1,5 +1,14 @@
 DuckJeenyusApp::Application.routes.draw do
 
+  get '/admins/songs' => 'admins#songs'
+  get '/admins/comments' => 'admins#comments'
+  get '/admins/login' => 'admins#login'
+  post '/admins/login' => 'sessions#admin_create'
+  get '/admins/logout' => 'admins#logout'
+  resources :admins
+
+
+
   get '/' => 'songs#index'
   resources :songs
   resources :lyrics do
@@ -10,8 +19,10 @@ DuckJeenyusApp::Application.routes.draw do
 
   get '/auth/twitter/callback' => 'sessions#create'
 
-resources :sessions, only: [:create, :destroy]
-resources :users, only: [:show]
+  resources :sessions, only: [:create, :destroy]
+  resources :users, only: [:show]
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

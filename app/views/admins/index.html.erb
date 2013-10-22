@@ -1,0 +1,8 @@
+<% if session[:admin] == true %>
+
+<h2>Admin Space</h2>
+
+<% else %>
+Whoops! You're not supposed to be here.
+<%= link_to 'Go Home', '/' %>
+<% end %>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '3.2.14'
 
 gem 'omniauth-twitter'
@@ -51,11 +52,13 @@ group :development, :test do
                             # https://github.com/voormedia/rails-erd
   gem 'awesome_print'       # Pretty print your Ruby objects in full color and with proper indentation
                             # https://github.com/michaeldv/awesome_print
+  gem 'rspec-rails', '~> 2.0'
+
 end
 
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
