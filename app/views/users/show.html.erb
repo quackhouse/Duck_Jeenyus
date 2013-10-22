@@ -3,7 +3,9 @@
   <div class="meanings">
     <% if @current_user.comments != [] %>
    <% @current_user.comments.each do |comment| %>
-    <br><%= comment.text %>
+    <br><a href="/lyrics/<%= comment.lyric.id %>/comments/<%= comment.id %>"><%= comment.text %></a>
+    <% lyric = comment.lyric %>
+    <small>Lyric: <%= lyric.text %></small>
    <%= form_tag "/lyrics/#{comment.lyric_id}/comments/#{comment.id}/edit", method: :get do %>
     <%= submit_tag 'Edit Interpretation' %>
     <% end %>
