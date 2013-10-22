@@ -8,7 +8,7 @@
   <h2>Hover to see different lyrical interpretations!</h2>
   <% @song.lyrics.each do |lyric| %>
   <br><div class="song-wrapper">
-  <a href="/lyrics/<%= lyric.id %>"><%= lyric.text %></a>
+  <div class="lyric"><a href="/lyrics/<%= lyric.id %>"><%= lyric.text %></a></div>
   <div class="lyric-tool-tip" id="<%= lyric.id %>">
     <% comments = lyric.comments %>
     <% comment_array = [] %>

@@ -16,3 +16,7 @@
 .song-wrapper a:hover + .lyric-tool-tip {
   display: block;
 }
+
+.lyric {
+  width: 49%;
+}
