@@ -8,7 +8,9 @@ Interpretations:
 <% end %>
 <% end %>
 </div>
-<% if !Comment.exists?(lyric_id: @lyric.id, user_id: session[:current_user_id]) %>
+<% if session[:current_user_id].nil? %>
+<br><a href="/auth/twitter">Log in to add meaning.</a>
+<% elsif !Comment.exists?(lyric_id: @lyric.id, user_id: session[:current_user_id]) && !session[:current_user_id].nil? %>
 <br><a href="/lyrics/<%= @lyric.id %>/comments/new">Add Meaning</a>
 <% else %>
 <br>You've already interpreted this lyric. <a href="/users/<%= session[:current_user_id] %>">See what you've written.</a>
