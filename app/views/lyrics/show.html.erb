@@ -8,7 +8,11 @@ Interpretations:
 <% end %>
 <% end %>
 </div>
+<% if !Comment.exists?(lyric_id: @lyric.id, user_id: session[:current_user_id]) %>
 <br><a href="/lyrics/<%= @lyric.id %>/comments/new">Add Meaning</a>
+<% else %>
+<br>You've already interpreted this lyric. <a href="/users/<%= session[:current_user_id] %>">See what you've written.</a>
+<% end %>
     <% lyric_array = @lyric.text.split(' ') %>
     <% tweet = lyric_array.join('%20') %>
     <% tweet = tweet + "...%20%23DuckJeenyus" %>
