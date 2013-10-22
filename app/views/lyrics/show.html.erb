@@ -1,0 +1,21 @@
+<div class="padded">
+  <h2><%= @lyric.text %></h2>
+<% if @lyric.comments != nil %>
+<div class="meanings">
+Interpretations:
+<br><% @lyric.comments.each do |comment| %>
+<br><a href="/lyrics/<%= @lyric.id %>/comments/<%= comment.id %>"><%= comment.text %></a>
+<% end %>
+<% end %>
+</div>
+<br><a href="/lyrics/<%= @lyric.id %>/comments/new">Add Meaning</a>
+    <% lyric_array = @lyric.text.split(' ') %>
+    <% tweet = lyric_array.join('%20') %>
+    <% tweet = tweet + "...%40QUACKHOUSE" %>
+       <br><a href="http://twitter.com/share?text=<%= tweet %>" target="_blank">
+Tweet This!</a>
+<br>
+<a href="/songs/<%= @lyric.song.id %>">Back to Song</a>
+
+
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DuckJeenyus</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="wrapper">
+      <div id="content">
+    <div class="user_nav">
+      <div class="left twelve columns">
+        <%= link_to "Home", "/" %> |
+        <%= link_to "Scoreboard", "/votes" %>
+        <% if !@current_user.nil? %>
+         | <%= link_to "My Meanings", "/users/#{@current_user.id}" %>
+        <% end %>
+      </div>
+      <div class="right four columns">
+        <% if @current_user.nil? %>
+        <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+        <% else %>
+        <%= "Hi, #{@current_user.name}" %>  |
+        <%= link_to "Sign out", "/sessions/#{@current_user.id}", :method => :delete %>
+        <% end %>
+      </div>
+    </div>
+    <br><br>
+    <div class="main">
+      <%= yield %>
+    </div></div></div>
+  </div><!-- container -->
+</body>
+</html>

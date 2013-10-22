@@ -1,0 +1,8 @@
+<div class="padded">
+  <div class="intro">Welcome to Duck-Jeenyus. Add meanings to Ducky's lyrics or browse other ducklings' interpretations.</div>
+<br>
+<span class="bigger">Songs:</span>
+<% @songs.each do |song| %>
+<br><a href="/songs/<%= song.id %>"><%= song.name %></a>
+<% end %>
+</div>

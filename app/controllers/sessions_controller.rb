@@ -1,0 +1,23 @@
+class SessionsController < ApplicationController
+  def create
+    access_token = request.env['omniauth.auth'][:extra][:access_token].token
+    access_token = access_token.to_s
+
+    if User.exists?(:access_token => access_token)
+      user = User.where(access_token: access_token).first
+      session[:current_user_id] = user.id
+    else
+      user = User.new
+      user.access_token = access_token
+      user.name = request.env['omniauth.auth'][:info][:name]
+      user.location = request.env['omniauth.auth'][:info][:location]
+      user.save
+      session[:current_user_id] = user.id
+    end
+    redirect_to('/')
+  end
+  def destroy
+    session[:current_user_id] = nil
+    redirect_to('/')
+  end
+end

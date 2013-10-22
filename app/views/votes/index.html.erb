@@ -1,0 +1,9 @@
+<div class="padded">
+<h2>Best Interpretations</h2>
+<% @comments.each do |hsh| %>
+<div class="comments"><a href="/lyrics/<%= hsh[:lyric_id] %>/comments/<%= hsh[:comment_id] %>"><%= hsh[:comment_text] %></a>
+<span class="song-title"><a href="/songs/<%= hsh[:song].id %>">Song: <%= hsh[:song].name %></a></span>
+<span class="votes"><%= hsh[:upvotes] %> Votes Up | <%= hsh[:downvotes] %> Votes Down</span>
+<br></div>
+<% end %>
+</div>

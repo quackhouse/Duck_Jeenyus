@@ -1,0 +1,17 @@
+<div class="padded"><h2><%= @current_user.name %></h2>
+
+  <div class="meanings">
+    <% if @current_user.comments != [] %>
+   <% @current_user.comments.each do |comment| %>
+    <br><%= comment.text %>
+   <%= form_tag "/lyrics/#{comment.lyric_id}/comments/#{comment.id}/edit", method: :get do %>
+    <%= submit_tag 'Edit Interpretation' %>
+    <% end %>
+<%= form_tag "/lyrics/#{comment.lyric_id}/comments/#{comment.id}", method: :delete do %>
+    <%= submit_tag 'Delete Interpretation' %>
+    <% end %>
+    <% end %>
+    <% else %>
+    You haven't added any meanings.
+    <% end %>
+  </div></div>

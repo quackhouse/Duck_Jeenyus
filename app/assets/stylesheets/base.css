@@ -1,0 +1,137 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Content
+==================================================
+  #Reset & Basics
+  #Basic Styles
+  #Site Styles
+  #Typography
+  #Links
+  #Lists
+  #Images
+  #Buttons
+  #Forms
+  #Misc */
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+    body {
+      line-height: 1; }
+      ol, ul {
+        list-style: none; }
+        blockquote, q {
+          quotes: none; }
+          blockquote:before, blockquote:after,
+          q:before, q:after {
+            content: '';
+            content: none; }
+            table {
+              border-collapse: collapse;
+              border-spacing: 0; }
+
+
+/* #Basic Styles
+================================================== */
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  background-image: url("/assets/8.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+  color: rgba(1, 1, 1, .8);
+}
+.user_nav {
+  font-family: 'Cutive', serif;
+  color: rgba(255, 255, 255, .8);
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+.user_nav a {
+  color: rgba(255, 255, 255, .8);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(1, 1, 1, .8);
+}
+
+a:hover {
+  color: #1B1BB3;
+}
+
+.left {
+  text-alight: left;
+}
+.right {
+  text-align: right;
+}
+.right a {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.main {
+  background-color: rgba(255, 255, 255, .8);
+}
+.padded {
+  padding: 10px;
+}
+.song-info {
+  bottom: 15px;
+}
+
+.intro {
+font-size: 2em;
+}
+h2 {
+  font-size: 2em;
+}
+.bigger {
+  font-size: 1.6em;
+  line-height: 2;
+}
+
+input {
+  width: 25%;
+}
+input[type=submit], button {
+  width: 15%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.comments {
+  margin-top: 10px;
+}
+.votes {
+  color: rgba(0, 0, 0, .5);
+}
+.song-title {
+  color: rgba(0, 0, 0, .5);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 5px;
+}
+

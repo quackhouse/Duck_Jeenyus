@@ -1,0 +1,13 @@
+<div class="padded">
+  <h1><%= @lyric.text %></h1>
+<%= form_for(@comment, :url => "/lyrics/#{@lyric_id}/comments", :method => :post) do |f| %>
+  <%= f.text_field 'text'%>
+  <%= f.hidden_field :date_created, :value => Time.now %>
+  <%= f.hidden_field :lyric_id, :value => @lyric_id %>
+  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+ <br> <%= f.submit :value => 'Add Meaning', :class => "button" %>
+  <% end %>
+  <form action="/lyrics/<%= @lyric_id %>">
+  <button >Back to Lyric</button>
+  </form>
+</div>

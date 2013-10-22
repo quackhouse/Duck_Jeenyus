@@ -1,0 +1,37 @@
+<div class="padded">
+  <h2><%= @comment.text %></h2>
+<br>written by <%= @author %> on <%= @comment.date_created %>
+<br><br><%= @votes_up %> votes up | <%= @votes_down %> votes down
+<% if !session[:current_user_id].nil? %>
+<% if !Vote.exists?(comment_id: @comment.id, user_id: session[:current_user_id]) %>
+<br><br><%= form_for(@vote, :url => "/votes", :method => :post) do |f| %>
+  <%= f.hidden_field :date_created, :value => Time.now %>
+  <%= f.hidden_field :comment_id, :value => @comment.id %>
+  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+  <%= f.hidden_field :value, :value => 1 %>
+  <%= f.submit :value => 'Vote Up', :class => "button" %>
+  <% end %>
+  <%= form_for(@vote, :url => "/votes", :method => :post) do |f| %>
+  <%= f.hidden_field :date_created, :value => Time.now %>
+  <%= f.hidden_field :comment_id, :value => @comment.id %>
+  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+  <%= f.hidden_field :value, :value => 0 %>
+  <%= f.submit :value => 'Vote Down', :class => "button" %>
+  <% end %>
+  <% end %>
+  <% else %>
+  <br><br><a href="/auth/twitter">Sign in</a> to vote
+  <% end %>
+
+
+
+
+<br><br>
+    <% comment_array = @comment.text.split(' ') %>
+    <% tweet = comment_array.join('%20') %>
+    <% tweet = tweet + "...%40QUACKHOUSE" %>
+       <a href="http://twitter.com/share?text=<%= tweet %>" target="_blank">
+Tweet This</a>
+ | <a href="/lyrics/<%= @comment.lyric_id %>">Back to Lyric</a>
+ | <a href="/songs/<%= @comment.lyric.song.id %>">Back to Song</a>
+</div>

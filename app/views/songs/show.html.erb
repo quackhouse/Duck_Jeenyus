@@ -1,0 +1,19 @@
+<div class="song-info"><span class="one-third column">Title: <%= @song.name %></span>
+<span class="one-third column center">Release Date: <%= @song.release_date %></span>
+<span class="one-third column right">Album: <%= @song.album %></span>
+</div>
+<div class="padded">
+  <br><iframe width="100%" height="166" scrolling="no" frameborder="no" src=<%= @song.streamlink %>></iframe>
+
+<h2>Hover to see different lyrical interpretations!</h2>
+<% @song.lyrics.each do |lyric| %>
+  <br><div class="song-wrapper">
+    <a href="/lyrics/<%= lyric.id %>"><%= lyric.text %></a>
+   <div class="lyric-tool-tip" id="<%= lyric.id %>"> <% lyric.comments.each do |comment| %>
+  Interpretation: <%= comment.text %> <br>
+    <% end %>
+
+     </div>
+   </div>
+<% end  %>
+</div>

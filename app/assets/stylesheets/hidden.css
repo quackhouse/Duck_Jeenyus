@@ -1,0 +1,18 @@
+/*.hidden {
+  display: none;
+}*/
+
+.lyric-tool-tip {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  color: #black;
+  background-color: rgba(0, 0, 0, .1);
+}
+.song-wrapper {
+  position: relative;
+}
+.song-wrapper a:hover + .lyric-tool-tip {
+  display: block;
+}
