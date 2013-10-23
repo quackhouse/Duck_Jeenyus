@@ -28,7 +28,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'mobile-fu'
+# gem 'mobile-fu'
 
 # gem 'jquery-rails'
 
