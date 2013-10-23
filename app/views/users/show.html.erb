@@ -1,5 +1,5 @@
 <div class="padded"><h2><%= @current_user.name %></h2>
-
+<%= flash[:notice] %>
   <div class="meanings">
     <% if @current_user.comments != [] %>
    <% @current_user.comments.each do |comment| %>

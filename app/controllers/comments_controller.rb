@@ -48,6 +48,7 @@ class CommentsController < ApplicationController
     id = params[:id].to_i
     comment = Comment.find(id)
     comment.destroy
+    flash[:notice] = "Comment deleted!"
     redirect_to("/users/#{session[:current_user_id]}")
   end
 end
