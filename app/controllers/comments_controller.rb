@@ -44,4 +44,10 @@ class CommentsController < ApplicationController
     to_edit.update_attributes(comment)
     redirect_to("/users/#{params[:current_user_id]}/show")
   end
+  def destroy
+    id = params[:id].to_i
+    comment = Comment.find(id)
+    comment.destroy
+    redirect_to("/users/#{session[:current_user_id]}")
+  end
 end
