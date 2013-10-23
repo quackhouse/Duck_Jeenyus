@@ -6,6 +6,7 @@
   <br><iframe width="100%" height="166" scrolling="no" frameborder="no" src=<%= @song.streamlink %>></iframe>
 
   <h2>Hover to see different lyrical interpretations!</h2>
+  <small>Hint: the blue lines have content. The black ones don't yet.</small>
   <% @song.lyrics.each do |lyric| %>
   <% if lyric.comments.size == 0 %>
   <% @color = 'rgba(0, 0, 0, .8)' %>
