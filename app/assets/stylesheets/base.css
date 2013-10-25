@@ -145,6 +145,13 @@ input[type=submit], button {
 
 }
 
+.seethru {
+  color: rgba(0, 0, 0, .1);
+  font-weight: bold;
+  font-size: 30px;
+  font-
+}
+
 small {
   font-size: .8em;
   display: block;
@@ -153,7 +160,6 @@ small {
 footer {
   color: rgba(255, 255, 255, .5);
   margin-top: 100px;
-  bottom: 0;
 }
 
 footer a {
