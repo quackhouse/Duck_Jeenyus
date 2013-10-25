@@ -29,8 +29,8 @@ class CommentsController < ApplicationController
     @lyric = @comment.lyric
     @song = @lyric.song
     @vote = Vote.new
-    @votes_up = @comment.votes_up(session[:current_user_id])
-    @votes_down = @comment.votes_down(session[:current_user_id])
+    @votes_up = @comment.votes_up(session[:current_user_id], id)
+    @votes_down = @comment.votes_down(session[:current_user_id], id)
   end
   def edit
     id = params[:id].to_i
