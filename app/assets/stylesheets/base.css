@@ -135,6 +135,10 @@ input[type=submit], button {
   margin-bottom: 5px;
 }
 
+.main a:hover {
+ color: rgba(106, 139, 185, .7);
+}
+
 .big-box {
   width: 300px;
   height: 300px;
@@ -144,4 +148,18 @@ input[type=submit], button {
 small {
   font-size: .8em;
   display: block;
+}
+
+footer {
+  color: rgba(255, 255, 255, .5);
+  margin-top: 100px;
+  bottom: 0;
+}
+
+footer a {
+  color: rgba(255, 255, 255, .5);
+}
+
+footer a:hover {
+  color: rgba(106, 139, 185, .7);
 }

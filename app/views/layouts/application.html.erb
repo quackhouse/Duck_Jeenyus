@@ -14,7 +14,7 @@
     <div id="wrapper">
       <div id="content">
         <div class="user_nav">
-          <div class="left twelve columns">
+          <div class="left four columns">
             <% if session[:admin] != true %>
             <%= link_to "Home", "/" %> |
             <%= link_to "Scoreboard", "/votes" %>
@@ -22,6 +22,7 @@
             | <%= link_to "My Meanings", "/users/#{@current_user.id}" %>
             <% end %>
           </div>
+          <div class="center bigger eight columns">DUCK JEENYUS</div>
           <div class="right four columns">
             <% if @current_user.nil? %>
             <%= link_to "Sign in with Twitter", "/auth/twitter"%>
@@ -46,6 +47,7 @@
         <div class="main">
           <%= yield %>
         </div></div></div>
+      <footer>powered by <a href="http://www.duckymusic.com">ducky</a></footer>
       </div><!-- container -->
     </body>
     </html>
