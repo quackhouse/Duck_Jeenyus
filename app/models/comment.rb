@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :lyric
 
   def votes_up(user_id, comment_id)
-    all_votes_up = Vote.where(comment_id: comment_id, user_id: user_id, value: 1)
+    all_votes_up = Vote.where(comment_id: comment_id, value: 1)
     votes_up = 0
     all_votes_up.each do |vote|
       votes_up += 1
@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
   end
   def votes_down(user_id, comment_id)
     votes_down = 0
-    all_votes_down = Vote.where(comment_id: comment_id, user_id: user_id, value: 0)
+    all_votes_down = Vote.where(comment_id: comment_id, value: 0)
     all_votes_down.each do |vote|
       votes_down += 1
     end
