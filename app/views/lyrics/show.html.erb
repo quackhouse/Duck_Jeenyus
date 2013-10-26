@@ -2,7 +2,7 @@
   <h2><%= @lyric.text %></h2>
 <% if @lyric.comments != nil %>
 <div class="meanings">
-Interpretations:
+Meanings:
 <% if @lyric.comments != [] %>
 <br><% @lyric.comments.each do |comment| %>
 <br><a href="/lyrics/<%= @lyric.id %>/comments/<%= comment.id %>"><%= comment.text %></a>
