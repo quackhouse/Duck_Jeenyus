@@ -1,10 +1,16 @@
-<div class="padded">
+<div class="padded center">
 <h2>Top 20 Meanings</h2>
+<br>
+<% counter = 1 %>
 <% @comments[0..19].each do |hsh| %>
-<div class="comments"><a href="/lyrics/<%= hsh[:lyric_id] %>/comments/<%= hsh[:comment_id] %>"><%= hsh[:comment_text] %></a>
+<div class="comments">
+  <span class="number"><%= counter %></span>
+  <br><a href="/lyrics/<%= hsh[:lyric_id] %>/comments/<%= hsh[:comment_id] %>"><%= hsh[:comment_text] %></a>
 <small><a href="/lyrics/<%= hsh[:lyric_id] %>">Lyric: <%= hsh[:lyric] %></a></small>
 <small><a href="/songs/<%= hsh[:song].id %>">Song: <%= hsh[:song].name %></a></small>
 <span class="votes"><%= hsh[:upvotes] %> Votes Up | <%= hsh[:downvotes] %> Votes Down</span>
 <br></div>
+<% counter += 1 %>
 <% end %>
+
 </div>
