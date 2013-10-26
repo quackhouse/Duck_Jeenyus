@@ -3,6 +3,7 @@
   <div class="meanings">
     <% if @current_user.comments != [] %>
     <% comments = @current_user.comments.sort_by { |k| k[:date_created] } %>
+    <% comments.reverse! %>
    <% comments.each do |comment| %>
     <br><a href="/lyrics/<%= comment.lyric.id %>/comments/<%= comment.id %>"><%= comment.text %></a>
     <% lyric = comment.lyric %>
