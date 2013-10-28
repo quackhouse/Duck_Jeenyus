@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
       user.access_token = access_token
       user.name = request.env['omniauth.auth'][:info][:name]
       user.location = request.env['omniauth.auth'][:info][:location]
+      user.password = access_token
+      user.password_confirmation = access_token
       user.save
       session[:current_user_id] = user.id
       redirect_to('/')
