@@ -4,8 +4,9 @@
 <div class="meanings">
 Meanings:
 <% if @lyric.comments != [] %>
-<br><% @lyric.comments.each do |comment| %>
-<br><a href="/lyrics/<%= @lyric.id %>/comments/<%= comment.id %>"><%= comment.text %></a>
+<% comments = @lyric.sort_comments %>
+<br><% comments.each do |comment| %>
+<br><a href="/lyrics/<%= @lyric.id %>/comments/<%= comment[:comment_id] %>"><%= comment[:comment_text] %></a>
 <% end %>
 <% else %>
 <span class="seethru"><br>Nobody has interpreted this lyric yet.</span>
