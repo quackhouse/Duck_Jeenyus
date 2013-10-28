@@ -2,7 +2,7 @@
   <% if @user.errors.any? %>
 <ul>
   <% @user.errors.messages.each do |error, msg| %>
-    <li><%= msg %></li>
+    <li><%= msg[0] %></li>
   <% end %>
   </ul>
 <% end %>
