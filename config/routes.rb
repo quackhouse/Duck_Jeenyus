@@ -12,9 +12,6 @@ DuckJeenyusApp::Application.routes.draw do
   # get '/admins/new' => '/'
   resources :admins
 
-  get '/login' => 'sessions#login'
-  post '/login' => 'sessions#create2'
-  resources :people
 
 
   get '/' => 'songs#index'
@@ -26,9 +23,11 @@ DuckJeenyusApp::Application.routes.draw do
   resources :votes
 
   get '/auth/twitter/callback' => 'sessions#create'
+  get '/users/login' => 'users#login'
+  post '/login' => 'users#login_do'
 
   resources :sessions, only: [:create, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :new, :create]
 
 
   # The priority is based upon order of creation:

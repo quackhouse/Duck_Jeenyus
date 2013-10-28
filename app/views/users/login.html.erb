@@ -1,0 +1,12 @@
+<div class="padded">
+<h2>Login</h2>
+  <%= flash[:notice] %>
+<%= form_tag('/login', method: :post) do %>
+  <%= label_tag :email %> <br>
+  <%= text_field_tag :email %> <br>
+  <%= label_tag :password %> <br>
+  <%= password_field_tag :password %> <br>
+  <%= submit_tag "Login" %> <br>
+<% end %>
+<br> Need an account? <a href="/users/new">Sign Up.</a>
+</div>

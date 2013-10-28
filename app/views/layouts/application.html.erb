@@ -24,8 +24,13 @@
           </div>
           <div class="right four columns">
             <% if @current_user.nil? %>
-            <%= link_to "Sign in with Twitter", "/auth/twitter"%>
-             | <%= link_to "Sign in", "/login" %>
+            <div class="signin-wrapper">
+              <div class="signin"><a href="#">Sign In</a></div>
+              <div class="signin-tooltip">
+                <%= link_to "With Twitter", "/auth/twitter"%>
+                <br><%= link_to "With Email", "/users/login" %>
+              </div>
+            </div>
             <% else %>
             <%= "Hi, #{@current_user.name}" %>  |
             <%= link_to "Sign out", "/sessions/#{@current_user.id}", :method => :delete %>
@@ -34,7 +39,7 @@
             <div class="left twelve columns">
               <%= link_to 'Moderate Songs', '/admins/songs' %>
               | <%= link_to 'Moderate Comments', '/admins/comments' %>
-               | <%= link_to 'Sign Out Admin', '/admins/logout' %>
+              | <%= link_to 'Sign Out Admin', '/admins/logout' %>
 
             </div>
             <div class="right four columns">
@@ -47,7 +52,7 @@
         <div class="main">
           <%= yield %>
         </div></div></div>
-      <footer>powered by <a href="http://www.duckymusic.com">ducky</a> ♡ <a href="http://www.facebook.com/duckymusic">facebook</a> ♡ <a href="http://www.twitter.com/quackhouse">twitter</a> ♡ <a href="http://www.duckymusic.com">website</a></footer>
+        <footer>powered by <a href="http://www.duckymusic.com">ducky</a> ♡ <a href="http://www.facebook.com/duckymusic">facebook</a> ♡ <a href="http://www.twitter.com/quackhouse">twitter</a> ♡ <a href="http://www.duckymusic.com">website</a></footer>
       </div><!-- container -->
     </body>
     </html>

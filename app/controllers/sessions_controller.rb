@@ -21,18 +21,6 @@ class SessionsController < ApplicationController
   def login
 
   end
-  def create2
-    email = params[:email]
-    password = params[:password]
-    @person = Person.where(email: email).first
-    if @person && @person.authenticate(password)
-      session[:current_user_id] = @person.id
-      redirect_to('/')
-    else
-      flash[:notice] = "Sorry, that password is incorrect."
-      render :login
-    end
-  end
   def signup
 
   end

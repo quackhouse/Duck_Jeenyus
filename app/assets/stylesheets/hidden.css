@@ -20,3 +20,11 @@
 .lyric {
   width: 49%;
 }
+
+.signin-tooltip {
+  display: none;
+}
+
+.signin-wrapper a:hover + .signin-tooltip {
+  display: block;
+}
