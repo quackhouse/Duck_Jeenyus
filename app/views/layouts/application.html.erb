@@ -25,7 +25,7 @@
           <div class="right four columns">
             <% if @current_user.nil? %>
             <%= link_to "Sign in with Twitter", "/auth/twitter"%>
-             | <%= link_to "Sign in without Twitter", "/login" %>
+             | <%= link_to "Sign in", "/login" %>
             <% else %>
             <%= "Hi, #{@current_user.name}" %>  |
             <%= link_to "Sign out", "/sessions/#{@current_user.id}", :method => :delete %>

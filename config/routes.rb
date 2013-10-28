@@ -12,6 +12,9 @@ DuckJeenyusApp::Application.routes.draw do
   # get '/admins/new' => '/'
   resources :admins
 
+  get '/login' => 'sessions#login'
+  post '/login' => 'sessions#create2'
+  resources :people
 
 
   get '/' => 'songs#index'
