@@ -17,17 +17,12 @@ class Lyric < ActiveRecord::Base
         downvotes += 1
       end
       score = upvotes - downvotes
-      lyric = Lyric.find(comment.lyric_id)
-      lyric_id = lyric.id
       @comments << {
         :comment_id => comment.id,
         :comment_text => comment.text,
         :upvotes => upvotes,
         :downvotes => downvotes,
-        :score => score,
-        :lyric_id => lyric_id,
-        :song => lyric.song,
-        :lyric => lyric.text
+        :score => score
       }
     end
     @comments = @comments.sort_by { |hsh| hsh[:score] }
